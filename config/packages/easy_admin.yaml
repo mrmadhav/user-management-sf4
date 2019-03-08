@@ -1,0 +1,38 @@
+easy_admin:
+    entities:
+        # List the entity class name you want to manage
+        User:
+            class: App\Entity\User
+            list:
+                fields:
+                    - username
+                    - name
+                    - email
+                    - enabled
+                    - lastLogin
+                    - roles
+                    - user_groups
+            edit:
+                fields:
+                    - username
+                    - name
+                    - email
+                    - enabled
+                    - lastLogin
+                    - { property: 'plainPassword', type_options: { required: false} }
+                    - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
+                    - user_groups
+                form_options: { validation_groups: ['Profile'] }
+            new:
+                fields:
+                    - username
+                    - name
+                    - email
+                    - enabled
+                    - lastLogin
+                    - { property: 'plainPassword', type_options: { required: true} }
+                    - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
+                    - user_groups
+                form_options: { validation_groups: ['Registration'] }
+        Group:
+            class: App\Entity\Group

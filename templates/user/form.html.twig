@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User Management Demo{% endblock %}
+
+{% block body %}
+    <div class="center-wrapper">
+        <div class="content">
+            <section class="content-header ">
+                <div class="d-flex flex-row justify-content-between align-content-center w-100">
+                    <div class="content-header-title">
+                        <h1 class="title">Manage User</h1>
+                    </div>
+                </div>
+            </section>
+
+            <section id="main" class="content-body">
+
+
+                {{ form_start(form) }}
+                <div class="my-custom-class-for-errors">
+                    {{ form_errors(form) }}
+                </div>
+
+                <div class="row">
+                    <div class="col-12 ">
+                        <div class="form-group  field-text">
+                            {{ form_label(form.name) }}
+                            <div class="form-widget">
+                                {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <small>{{ form_help(form.name) }}</small>
+                            <div class="form-error">
+                                {{ form_errors(form.name) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 ">
+                        <div class="form-group  field-text">
+                            {{ form_label(form.username) }}
+                            <div class="form-widget">
+                                {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <small>{{ form_help(form.username) }}</small>
+                            <div class="form-error">
+                                {{ form_errors(form.username) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 ">
+                        <div class="form-group  field-text">
+                            {{ form_label(form.email) }}
+                            <div class="form-widget">
+                                {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <small>{{ form_help(form.email) }}</small>
+                            <div class="form-error">
+                                {{ form_errors(form.email) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 ">
+                        <div class="form-group  field-text">
+                            {{ form_label(form.plain_password) }}
+                            <div class="form-widget">
+                                {{ form_widget(form.plain_password, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <small>{{ form_help(form.plain_password) }}</small>
+                            <div class="form-error">
+                                {{ form_errors(form.plain_password) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 ">
+                        <div class="form-group  field-text">
+                            {{ form_label(form.roles) }}
+                            <div class="form-widget">
+                                {{ form_widget(form.roles, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <small>{{ form_help(form.roles) }}</small>
+                            <div class="form-error">
+                                {{ form_errors(form.roles) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 ">
+                        <div class="form-group  field-text">
+                            {{ form_label(form.user_groups) }}
+                            <div class="form-widget">
+                                {{ form_widget(form.user_groups, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <small>{{ form_help(form.user_groups) }}</small>
+                            <div class="form-error">
+                                {{ form_errors(form.user_groups) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="content-footer">
+                <div class="form-actions">
+                    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary action-save'}}) }}
+                    <a class="btn btn-link pr-0 action-list" title="" href="{{ path('admin') }}" target="_self">Back to listing</a>
+                </div>
+            </section>
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+{% endblock %}

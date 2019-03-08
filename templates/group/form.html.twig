@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Group - User Management Demo{% endblock %}
+
+{% block body %}
+    <div class="center-wrapper">
+        <div class="content">
+            <section class="content-header ">
+                <div class="d-flex flex-row justify-content-between align-content-center w-100">
+                    <div class="content-header-title">
+                        <h1 class="title">Manage Group</h1>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="content-body">
+                {{ form_start(form) }}
+
+                <div class="my-custom-class-for-errors">
+                    {{ form_errors(form) }}
+                </div>
+
+                <div class="row">
+                    <div class="col-12 ">
+                        <div class="form-group  field-text">
+                            {{ form_label(form.name) }}
+                            <div class="form-widget">
+                                {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <small>{{ form_help(form.name) }}</small>
+                            <div class="form-error">
+                                {{ form_errors(form.name) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 ">
+                        <div class="form-group  field-text">
+                            {{ form_label(form.users) }}
+                            <div class="form-widget">
+                                {{ form_widget(form.users, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                            <small>{{ form_help(form.users) }}</small>
+                            <div class="form-error">
+                                {{ form_errors(form.users) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="content-footer">
+                <div class="form-actions">
+                    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary action-save'}}) }}
+                    <a class="btn btn-link pr-0 action-list" title="" href="{{ path('admin') }}" target="_self">Back to listing</a>
+                </div>
+            </section>
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+{% endblock %}

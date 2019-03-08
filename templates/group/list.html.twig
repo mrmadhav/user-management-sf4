@@ -1,0 +1,32 @@
+<h2>Manage Groups <a class="btn btn-primary action-new" href="{{ path('addGroup') }}">Add Group</a></h2>
+<br />
+<table class="table datagrid">
+    <thead>
+    <tr>
+        <th><span>Name</span></th>
+        <th><span>Users</span></th>
+        <th>
+            <span></span>
+        </th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for item in list %}
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.users |join(', ', ' and ') }}</td>
+            <td class="actions">
+                <a class="action-edit" href="{{ path('editGroup', {'id': item.id}) }}">Edit</a>
+                <a class="text-danger action-delete" href="{{ path('deleteGroup', {'id': item.id}) }}"  onclick="confirm('Are you sure to delete this item?') || event.preventDefault()">Delete</a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td class="no-results" colspan="3">
+                Sorry no records found.
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

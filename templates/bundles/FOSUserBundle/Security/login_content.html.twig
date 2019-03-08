@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block title %}Login - User Management Demo{% endblock %}
+
+{% block body %}
+    <style>
+        .error-message {
+            float: none;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+    <div class="center-wrapper">
+        <div class="content">
+            <section class="content-header ">
+                <div class="d-flex flex-row justify-content-between align-content-center w-100">
+                    <div class="content-header-title">
+                        <h1 class="title">Login</h1>
+                    </div>
+                </div>
+            </section>
+            <section id="main" class="content-body">
+                <form action="{{ path("fos_user_security_check") }}" method="post">
+                    {% if csrf_token %}
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                    {% endif %}
+                <div class="row">
+                        {% if error %}
+                            <div class="col-6 alert alert-danger error-message">
+                                    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                            </div>
+                        {% endif %}
+                    <div class="col-12 ">
+                        <div class="form-group  field-text">
+                            <label for="username">{{ 'security.login.username'|trans }}</label>
+                            <div class="form-widget">
+                                <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 ">
+                        <div class="form-group  field-text">
+                            <label for="password">{{ 'security.login.password'|trans }}</label>
+                            <div class="form-widget">
+                                <input type="password" id="password" name="_password" required="required" autocomplete="current-password" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 ">
+                        <div class="form-group  field-text">
+                            <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+                            <div class="form-widget">
+                                <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 ">
+                        <div class="form-group  field-text">
+                            <label>&nbsp;</label>
+                            <div class="form-widget">
+                                <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </section>
+        </div>
+    </div>
+{% endblock %}

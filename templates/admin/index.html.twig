@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User Management Demo{% endblock %}
+
+{% block body %}
+<div class="center-wrapper">
+    <h1>User management back-office</h1>
+    <p>Hello and welcome to the user management system.</p>
+    <p>Please use the links/buttons below to perform necessary actions.</p>
+    <hr />
+    {{ include('user/list.html.twig', {list: listOfUsers}, with_context = false) }}
+    <br />
+    <br />
+    <hr />
+    {{ include('group/list.html.twig', {list: listOfGroups}, with_context = false) }}
+</div>
+{% endblock %}

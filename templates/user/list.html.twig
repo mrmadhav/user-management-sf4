@@ -1,0 +1,38 @@
+<h2>Manage Users <a class="btn btn-primary action-new" href="{{ path('addUser') }}">Add User</a></h2>
+<br />
+<table class="table datagrid">
+    <thead>
+    <tr>
+        <th><span>Name</span></th>
+        <th><span>Username</span></th>
+        <th><span>Email</span></th>
+        <th><span>Groups</span></th>
+        <th><span>Roles</span></th>
+        <th>
+            <span></span>
+        </th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for item in list %}
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.username }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.userGroups |join(', ', ' and ') }}</td>
+            <td>{{ item.roles |join(', ', ' and ') }}</td>
+            <td class="actions">
+                <a class="action-edit" href="{{ path('editUser', {'id': item.id}) }}">Edit</a>
+                <a class="text-danger action-delete" href="{{ path('deleteUser', {'id': item.id}) }}"  onclick="confirm('Are you sure to delete this item?') || event.preventDefault()">Delete</a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td class="no-results" colspan="5">
+                Sorry no records found.
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
