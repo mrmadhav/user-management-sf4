@@ -56,3 +56,45 @@ However, for the purpose of this demo, I am also going to code each of the stori
 10. Run the command `php bin/console server:run` to run the built-in web server
 11. Connect to the url provided by the command (usually http://127.0.0.1:8000)
  
+ 
+## REST API
+A simple REST API has been developed to enable other apps/services do the tasks above.
+
+For the sake of simplicity, there is no authentication mechanism setup. If you need to add authentication, it is recommended that you use the FOSOAuthServerBundle
+
+## API List
+### Users
+##### List of users
+- URL: /api/user
+- Verb: GET
+
+##### Add User -> NOT YET IMPLEMENTED
+- URL: /api/user
+- Verb: POST
+
+##### Modify User -> NOT YET IMPLEMENTED
+- URL: /api/user
+- Verb: PUT
+
+##### Delete User -> NOT YET IMPLEMENTED
+- URL: /api/user
+- Verb: DELETE
+
+### Groups
+##### List of groups
+- URL: /api/group
+- Verb: GET
+
+##### Add Group -> NOT YET IMPLEMENTED
+- URL: /api/group
+- Verb: POST
+
+##### Modify Group -> NOT YET IMPLEMENTED
+- URL: /api/group
+- Verb: PUT
+
+##### Delete Group -> NOT YET IMPLEMENTED
+- URL: /api/group
+- Verb: DELETE
+
+ 
